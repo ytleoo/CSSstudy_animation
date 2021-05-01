@@ -1,0 +1,242 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  width: 100%;
+  height: 65px;
+  background: #fff;
+  
+  position: fixed;
+  z-index: 1;
+}
+
+.top {
+  background: #9cb2b5 url(images/4504366_m.jpg) no-repeat center center;
+  background-size: cover;
+  height: 500px;
+  
+  padding-top: 80px;
+  background-blend-mode: soft-light;
+}
+
+.title {
+  font-size: 72px;
+  color: #fff;
+  text-align: center;
+  line-height: 400px;
+}
+
+.about {
+  padding: 50px;
+}
+
+.about-title {
+  border-bottom: 1px solid #a5a5a5;
+  margin-bottom: 20px;
+}
+
+.contents {
+  margin: 50px;
+}
+
+.content {
+  width: 100%;
+  height: 350px;
+  display: flex;
+  padding: 45px 20px;
+  border: 1px solid #000;
+  margin-bottom: 50px;
+}
+
+.content img {
+  width: 300px;
+  height: 250px;
+  
+  object-fit: cover;
+}
+
+.content-box {
+  margin-left: 20px;
+}
+
+.content-title {
+  margin-bottom: 10px;
+}
+
+.content-text {
+  height: 180px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.more {
+  font-size: 20px;
+  color: #6c6c6c;
+  float: right;
+  margin-right: 20px;
+}
+
+/*レベル①　ホバー*/
+.content:hover {
+  transition: 0.5s;
+  box-shadow: 0px 0px 20px -6px rgba(0,0,0,0.6);
+}
+
+.content:hover img {
+  transform: scale(1.01);
+  transition: 0.5s;
+}
+
+.content:hover .more {
+  transform: translate(20px);
+  transition: 0.5s;
+}
+
+/*レベル②idの使い方とホバー定着*/
+.top-btn {
+    width: 70px;
+    height: 70px;
+    border: 2px solid #a5a5a5;
+    border-radius: 50%;
+  
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  
+    text-align: center;
+    line-height: 60px;
+    color: #6c6c6c;
+}
+
+.top-btn:hover {
+  transition: 0.5s;
+  background: rgba(255, 255, 255, 0.75);
+  transform: rotate(360deg);
+}
+
+/*cssアニメーション*/
+
+.fade-in-bottom {
+   opacity: 0;
+   animation-name: fadein-bottom;
+   animation-duration: 1.5s;
+   animation-timing-function: ease-out;
+   animation-fill-mode: forwards;
+}
+@keyframes fadein-bottom {
+   0% {
+      opacity: 0;
+      transform: translateY(20px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
+
+.slide-bottom {
+   opacity: 0;
+   transform: translateY(20px);
+   transition: all 1.3s 0s ease-out;
+ }
+
+/*　ハンバーガーボタン　*/
+.hamburger {
+  display : block;
+  position: fixed;
+  z-index : 3;
+  right : 13px;
+  top   : 12px;
+  width : 42px;
+  height: 42px;
+  cursor: pointer;
+  text-align: center;
+}
+.hamburger span {
+  display : block;
+  position: absolute;
+  width   : 30px;
+  height  : 2px ;
+  left    : 6px;
+  background : #555;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition   : 0.3s ease-in-out;
+  transition        : 0.3s ease-in-out;
+}
+.hamburger span:nth-child(1) {
+  top: 10px;
+}
+.hamburger span:nth-child(2) {
+  top: 20px;
+}
+.hamburger span:nth-child(3) {
+  top: 30px;
+}
+
+/* ナビ開いてる時のボタン */
+.hamburger.active span:nth-child(1) {
+  top : 16px;
+  left: 6px;
+  background :#fff;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform   : rotate(-45deg);
+  transform        : rotate(-45deg);
+}
+
+.hamburger.active span:nth-child(2),
+.hamburger.active span:nth-child(3) {
+  top: 16px;
+  background :#fff;
+  -webkit-transform: rotate(45deg);
+  -moz-transform   : rotate(45deg);
+  transform        : rotate(45deg);
+}
+
+nav.globalMenuSp {
+  position: fixed;
+  z-index : 2;
+  top  : 0;
+  left : 0;
+  color: #fff;
+  background: rgba(0,0,0,0.7);
+  text-align: center;
+  width: 100%;
+  opacity: 0;
+  transition: opacity .6s ease, visibility .6s ease;
+}
+
+nav.globalMenuSp ul {
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+}
+
+nav.globalMenuSp ul li {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  transition: .4s all;
+}
+nav.globalMenuSp ul li:last-child {
+  padding-bottom: 0;
+}
+nav.globalMenuSp ul li:hover{
+  background :#ddd;
+}
+
+nav.globalMenuSp ul li a {
+  display: block;
+  color: #fff;
+  padding: 1em 0;
+  text-decoration :none;
+}
+
+/* このクラスを、jQueryで付与・削除する */
+nav.globalMenuSp.active {
+  opacity: 100;
+
+}
+
